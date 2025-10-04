@@ -1,0 +1,22 @@
+{
+  "name": "space-biology-knowledge-engine-server",
+  "version": "1.0.0",
+  "description": "Backend server for Space Biology Knowledge Engine",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "ingest": "node ingest/ingest.js",
+    "import:pmc": "node ingest/importPmc.js"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "cors": "^2.8.5",
+    "csv-parse": "^5.5.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "nodemon": "^3.0.1",
+    "xml2js": "^0.6.2"
+  }
+}
