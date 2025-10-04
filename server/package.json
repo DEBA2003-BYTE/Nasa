@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json.schemastore.org/package",
   "name": "space-biology-knowledge-engine-server",
   "version": "1.0.0",
   "description": "Backend server for Space Biology Knowledge Engine",
