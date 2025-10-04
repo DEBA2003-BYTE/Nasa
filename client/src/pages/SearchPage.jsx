@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/SearchBar';
-import PaperCard from '../components/PaperCard';
+import ResultsTabs from '../components/ResultsTabs';
 
 function SearchPage() {
   const [papers, setPapers] = useState([]);
@@ -154,11 +154,7 @@ function SearchPage() {
         </div>
         
         {!loading && filteredPapers.length > 0 ? (
-          <div className="papers-grid">
-            {filteredPapers.map((paper, index) => (
-              <PaperCard key={paper.id || index} paper={paper} />
-            ))}
-          </div>
+          <ResultsTabs papers={filteredPapers} />
         ) : searchParams.query || Object.keys(activeFilters).length > 0 ? (
           <div className="no-results">
             <p>No results found for your search criteria.</p>
@@ -175,14 +171,12 @@ function SearchPage() {
               <ul>
                 <li>Use specific terms like "bone loss in microgravity"</li>
                 <li>Filter by author, publication year, or research area</li>
-                <li>Combine multiple filters for precise results</li>
               </ul>
             </div>
           </div>
         )}
       </div>
-      
-      <style jsx>{`
+            <style jsx>{`
         .search-page {
           max-width: 1200px;
           margin: 0 auto;
@@ -197,12 +191,18 @@ function SearchPage() {
           overflow: hidden;
         }
         
+        /* Ensure the tabs take full width */
+        .results-container :global(.tabs) {
+          width: 100%;
+          margin-bottom: 1.5rem;
+        }
+        
         .active-filters {
           background: #f8f9fa;
           border-radius: 8px;
           padding: 1rem;
           margin-bottom: 1.5rem;
-        }
+{{ ... }}
         
         .filters-header {
           display: flex;
